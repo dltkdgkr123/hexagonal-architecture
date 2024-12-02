@@ -8,9 +8,12 @@ import java.lang.annotation.Target;
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
-@SuppressWarnings("checkstyle:MissingJavadocType")
+@SuppressWarnings
+    ({"checkstyle:MethodJavadoc",
+        "checkstyle:Indentation",
+        "checkstyle:MissingJavadocType"})
 @Target({ElementType.TYPE}) // scope : class, interface, enum
-@Retention(RetentionPolicy.RUNTIME) //  default RetentionPolicy : CLASS
+@Retention(RetentionPolicy.RUNTIME) //  default : RetentionPolicy.CLASS
 @Documented
 @Component
 public @interface PersistenceAdapter {
