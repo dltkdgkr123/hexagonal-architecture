@@ -5,9 +5,14 @@ import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validator;
 import java.util.Set;
 
+@SuppressWarnings
+    ({"checkstyle:MethodJavadoc",
+        "checkstyle:Indentation",
+        "checkstyle:MissingJavadocType",
+        "checkstyle:MissingJavadocMethod"})
 class Validation {
 
-    private final static Validator validator =
+    private static final Validator validator =
         jakarta.validation.Validation
             .buildDefaultValidatorFactory().getValidator();
 

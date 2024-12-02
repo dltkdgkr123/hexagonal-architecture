@@ -9,6 +9,7 @@ import java.math.BigInteger;
         "checkstyle:MissingJavadocType"})
 public record Money(@NotNull BigInteger amount) {
 
+    // amount 자체가 long 범위보다 크면?
     static Money of(long amount) {
         return new Money(BigInteger.valueOf(amount));
     }
@@ -40,4 +41,6 @@ public record Money(@NotNull BigInteger amount) {
     Money subtract(Money money) {
         return new Money(amount.subtract(money.amount));
     }
+
+
 }

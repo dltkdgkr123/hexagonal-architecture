@@ -11,14 +11,14 @@ import org.springframework.stereotype.Component;
 @SuppressWarnings
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
-        "checkstyle:MissingJavadocType"})
+        "checkstyle:MissingJavadocType",
+        "checkstyle:MissingJavadocMethod"})
 @Target({ElementType.TYPE}) // scope : class, interface, enum
 @Retention(RetentionPolicy.RUNTIME) //  default : RetentionPolicy.CLASS
 @Documented
 @Component
 public @interface PersistenceAdapter {
 
-    @SuppressWarnings("checkstyle:MissingJavadocMethod")
     @AliasFor(annotation = Component.class)
     String value() default "";
 }
