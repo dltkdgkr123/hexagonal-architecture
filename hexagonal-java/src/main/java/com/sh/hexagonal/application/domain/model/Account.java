@@ -39,7 +39,7 @@ public record Account(AccountId accountId,
      */
     static record AccountId() {
 
-        static private Long value;
+        private static Long value;
     }
 
     static class ActivityWindow {

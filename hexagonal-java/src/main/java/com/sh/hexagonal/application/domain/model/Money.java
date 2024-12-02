@@ -42,5 +42,11 @@ public record Money(@NotNull BigInteger amount) {
         return new Money(amount.subtract(money.amount));
     }
 
+    static Money sum(Money m1, Money m2) {
+        return m1.add(m2);
+    }
 
+    static Money differnce(Money m1, Money m2) {
+        return m1.subtract(m2);
+    }
 }
