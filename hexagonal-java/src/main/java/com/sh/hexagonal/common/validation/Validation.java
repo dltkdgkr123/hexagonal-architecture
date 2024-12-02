@@ -7,20 +7,20 @@ import java.util.Set;
 
 class Validation {
 
-  private final static Validator validator =
-      jakarta.validation.Validation
-          .buildDefaultValidatorFactory().getValidator();
+    private final static Validator validator =
+        jakarta.validation.Validation
+            .buildDefaultValidatorFactory().getValidator();
 
-  public static <S> void validate(S subject) {
-    Set<ConstraintViolation<S>> violations = validator.validate(subject);
+    public static <S> void validate(S subject) {
+        Set<ConstraintViolation<S>> violations = validator.validate(subject);
 
-    if (!violations.isEmpty()) {
-      StringBuilder message = new StringBuilder();
+        if (!violations.isEmpty()) {
+            StringBuilder message = new StringBuilder();
 
-      for (ConstraintViolation<S> violation : violations) {
-        message.append(violation.getMessage()).append("\n");
-      }
-      throw new ConstraintViolationException(message.toString(), violations);
+            for (ConstraintViolation<S> violation : violations) {
+                message.append(violation.getMessage()).append("\n");
+            }
+            throw new ConstraintViolationException(message.toString(), violations);
+        }
     }
-  }
 }

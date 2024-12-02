@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public @interface UseCase {
 
-  @SuppressWarnings("checkstyle:MissingJavadocMethod")
-  @AliasFor(annotation = Component.class)
-  String value() default "";
+    @SuppressWarnings("checkstyle:MissingJavadocMethod")
+    @AliasFor(annotation = Component.class)
+    String value() default "";
 }

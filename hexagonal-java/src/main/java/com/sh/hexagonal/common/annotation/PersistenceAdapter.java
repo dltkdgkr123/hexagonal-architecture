@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public @interface PersistenceAdapter {
 
-  @SuppressWarnings("checkstyle:MissingJavadocMethod")
-  @AliasFor(annotation = Component.class)
-  String value() default "";
+    @SuppressWarnings("checkstyle:MissingJavadocMethod")
+    @AliasFor(annotation = Component.class)
+    String value() default "";
 }
 
