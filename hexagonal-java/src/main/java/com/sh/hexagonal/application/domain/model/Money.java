@@ -7,10 +7,12 @@ import java.math.BigInteger;
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
-public record Money(@NotNull BigInteger amount) {
+record Money(@NotNull BigInteger amount) {
 
-    // amount 자체가 long 범위보다 크면?
-    static Money of(long amount) {
+    static Money ZERO = Money.of(0L);
+
+    /* amount 자체가 long 범위보다 크면? */
+    static Money of(final long amount) {
         return new Money(BigInteger.valueOf(amount));
     }
 
@@ -26,27 +28,31 @@ public record Money(@NotNull BigInteger amount) {
         return amount.compareTo(BigInteger.ZERO) < 0;
     }
 
-    boolean isGreaterThan(Money money) {
+    boolean isGreaterThan(final Money money) {
         return amount.compareTo(money.amount) > 0;
     }
 
-    boolean isGreaterThanOrEqualTo(Money money) {
+    boolean isGreaterThanOrEqualTo(final Money money) {
         return amount.compareTo(money.amount) >= 0;
     }
 
-    Money add(Money money) {
+    Money add(final Money money) {
         return new Money(amount.add(money.amount));
     }
 
-    Money subtract(Money money) {
+    Money subtract(final Money money) {
         return new Money(amount.subtract(money.amount));
     }
 
-    static Money sum(Money m1, Money m2) {
+    static Money sum(final Money m1, final Money m2) {
         return m1.add(m2);
     }
 
-    static Money differnce(Money m1, Money m2) {
+    static Money differnce(final Money m1, final Money m2) {
         return m1.subtract(m2);
+    }
+
+    public Money negate() {
+        return new Money(amount.negate());
     }
 }
