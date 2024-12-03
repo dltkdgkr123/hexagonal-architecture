@@ -20,6 +20,14 @@ record Account(AccountId accountId,
         return new Account(null, baselineBalance, activityWindow);
     }
 
+    static Account withId(
+        AccountId accountId,
+        Money baselineBalance,
+        ActivityWindow activityWindow) {
+
+        return new Account(accountId, baselineBalance, activityWindow);
+    }
+
     /* record getter랑 충돌 일으켜서 못씀 */
 /*    public Optional<AccountId> accountId() {
         return Optional.ofNullable(accountId);
@@ -27,14 +35,6 @@ record Account(AccountId accountId,
 
     boolean hasAccountId() {
         return Optional.ofNullable(accountId).isPresent();
-    }
-
-    static Account withId(
-        AccountId accountId,
-        Money baselineBalance,
-        ActivityWindow activityWindow) {
-
-        return new Account(accountId, baselineBalance, activityWindow);
     }
 
     Money calculateBalance() {

@@ -48,9 +48,9 @@ record ActivityWindow(@NotNull List<Activity> activities) {
 
     /*
      * 목적 :
-     * 1. activities는 Activity를 추가할 수 있는 가변 객체여야 한다.
-     * 2. getter는 불변 객체를 반환해야 한다.
-     * 3. record에서 setter는 제공하지 않지만, getter를 통해 레퍼런스 접근이 가능하기에 이를 막아야 한다.
+     * 1. activities는 Activity를 추가할 수 있는 mutable 객체여야 한다.
+     * 2. getter는 immutable 객체를 반환해야 한다.
+     * 3. record에서 setter는 제공하지 않지만, getter를 통해 레퍼런스 접근 및 수정이 가능하기에 이를 막아야 한다.
      *
      * @throw UnsupportedOperationException - activities()를 이용한 접근 후 수정 시
      */
