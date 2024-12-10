@@ -7,13 +7,13 @@ import java.time.LocalDateTime;
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
-record Activity(@NotNull Account.AccountId ownerAccountId,
+public record Activity(@NotNull Account.AccountId ownerAccountId,
                 @NotNull Account.AccountId sourceAccountId,
                 @NotNull Account.AccountId targetAccountId,
                 @NotNull LocalDateTime timestamp,
                 @NotNull Money money) {
 
-    record ActivityId(@NotNull Long value) {
+    public record ActivityId(@NotNull Long value) {
 
     }
 }

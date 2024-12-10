@@ -10,7 +10,7 @@ import java.util.List;
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
-record ActivityWindow(@NotNull List<Activity> activities) {
+public record ActivityWindow(@NotNull List<Activity> activities) {
 
     LocalDateTime getStartTimestamp() {
         return activities.stream()
@@ -42,7 +42,7 @@ record ActivityWindow(@NotNull List<Activity> activities) {
 
 
     /* Non-canonical record constructor must delegate to another constructor */
-    ActivityWindow(@NotNull final Activity... activities) {
+    public ActivityWindow(@NotNull final Activity... activities) {
         this(List.of(activities));
     }
 

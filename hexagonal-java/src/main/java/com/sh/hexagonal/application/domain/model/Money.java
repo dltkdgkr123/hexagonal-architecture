@@ -7,9 +7,9 @@ import java.math.BigInteger;
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
-record Money(@NotNull BigInteger amount) {
+public record Money(@NotNull BigInteger amount) {
 
-    static Money ZERO = Money.of(0L);
+    public static Money ZERO = Money.of(0L);
 
     /* amount 자체가 long 범위보다 크면? */
     static Money of(final long amount) {

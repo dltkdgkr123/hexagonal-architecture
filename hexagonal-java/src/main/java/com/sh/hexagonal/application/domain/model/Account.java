@@ -8,7 +8,7 @@ import java.util.Optional;
     ({"checkstyle:MethodJavadoc",
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
-record Account(AccountId accountId,
+public record Account(AccountId accountId,
                @NotNull Money baselineBalance,
                @NotNull ActivityWindow activityWindow) {
 
@@ -37,7 +37,7 @@ record Account(AccountId accountId,
         return Optional.ofNullable(accountId).isPresent();
     }
 
-    Money calculateBalance() {
+    public Money calculateBalance() {
         return Money.sum(baselineBalance, activityWindow.calculateBalance(accountId));
     }
 
@@ -83,7 +83,7 @@ record Account(AccountId accountId,
         return true;
     }
 
-    record AccountId(Long value) {
+    public record AccountId(Long value) {
 
     }
 }
