@@ -8,65 +8,50 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-@SuppressWarnings
-    ({"checkstyle:MethodJavadoc",
-        "checkstyle:Indentation",
-        "checkstyle:MissingJavadocType"})
-public record ActivityWindow(@NotNull List<Activity> activities) {
+public class ActivityWindow {
+
+    @NotNull
+    private List<Activity> activities;
 
     LocalDateTime getStartTimestamp() {
         return activities.stream()
-            .min(Comparator.comparing(Activity::timestamp))
+            .min(Comparator.comparing(Activity::getTimestamp))
             .orElseThrow(IllegalStateException::new)
-            .timestamp();
+            .getTimestamp();
     }
 
     LocalDateTime getEndTimestamp() {
         return activities.stream()
-            .max(Comparator.comparing(Activity::timestamp))
+            .max(Comparator.comparing(Activity::getTimestamp))
             .orElseThrow(IllegalStateException::new)
-            .timestamp();
+            .getTimestamp();
     }
 
     Money calculateBalance(@NotNull final Account.AccountId accountId) {
         Money depositBalance = activities.stream()
-            .filter(a -> a.targetAccountId().equals(accountId))
-            .map(Activity::money)
+            .filter(a -> a.getTargetAccountId().equals(accountId))
+            .map(Activity::getMoney)
             .reduce(Money.ZERO, Money::add);
 
         Money withdrawalBalance = activities.stream()
-            .filter(a -> a.sourceAccountId().equals(accountId))
-            .map(Activity::money)
+            .filter(a -> a.getSourceAccountId().equals(accountId))
+            .map(Activity::getMoney)
             .reduce(Money.ZERO, Money::add);
 
         return Money.sum(depositBalance, withdrawalBalance.negate());
     }
 
 
-    /* Non-canonical record constructor must delegate to another constructor */
     public ActivityWindow(@NotNull final Activity... activities) {
-
-        // modifiableList 생성
-        this(new ArrayList<>(Arrays.asList(activities)));
-
-        // modifiableList 생성 2
-//        this(new ArrayList<>(List.of(activities)));
-
-        // unmodifiableList 생성
-//        this(List.of(activities));
+        this.activities = new ArrayList<>(Arrays.asList(activities));
     }
 
-    /*
-     * 목적 :
-     * 1. activities는 Activity를 추가할 수 있는 mutable 객체여야 한다.
-     * 2. getter는 immutable 객체를 반환해야 한다.
-     * 3. record에서 setter는 제공하지 않지만, getter를 통해 레퍼런스 접근 및 수정이 가능하기에 이를 막아야 한다.
-     *
-     * @throw UnsupportedOperationException - activities()를 이용한 접근 후 수정 시
-     */
-    @Override
-    public List<Activity> activities() {
-        return Collections.unmodifiableList(activities);
+    public ActivityWindow(@NotNull final List<Activity> activities) {
+        this.activities = activities;
+    }
+
+    public List<Activity> getActivities() {
+        return Collections.unmodifiableList(this.activities);
     }
 
     void addActivity(@NotNull final Activity activity) {

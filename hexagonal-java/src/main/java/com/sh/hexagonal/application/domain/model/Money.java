@@ -2,12 +2,13 @@ package com.sh.hexagonal.application.domain.model;
 
 import jakarta.validation.constraints.NotNull;
 import java.math.BigInteger;
+import lombok.Value;
 
-@SuppressWarnings
-    ({"checkstyle:MethodJavadoc",
-        "checkstyle:Indentation",
-        "checkstyle:MissingJavadocType"})
-public record Money(@NotNull BigInteger amount) {
+@Value
+public class Money {
+
+    @NotNull
+    BigInteger amount;
 
     public static Money ZERO = Money.of(0L);
 
@@ -48,7 +49,7 @@ public record Money(@NotNull BigInteger amount) {
         return m1.add(m2);
     }
 
-    static Money differnce(final Money m1, final Money m2) {
+    public static Money differnce(final Money m1, final Money m2) {
         return m1.subtract(m2);
     }
 

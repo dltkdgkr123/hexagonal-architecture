@@ -3,35 +3,42 @@ package com.sh.hexagonal.application.domain.model;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Optional;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@SuppressWarnings
-    ({"checkstyle:MethodJavadoc",
-        "checkstyle:Indentation",
-        "checkstyle:MissingJavadocType"})
-public record Account(AccountId accountId,
-                      @NotNull Money baselineBalance,
-                      @NotNull ActivityWindow activityWindow) {
+@AllArgsConstructor
+public class Account {
 
-    /* 아직 영속화 되지 않은 새로운 엔터티를 사용할 때 사용 */
-    static Account withoutId(
+    @Getter
+    private final AccountId accountId;
+
+    @Getter
+    @NotNull
+    private final Money baselineBalance;
+
+    @Getter
+    @NotNull
+    private final ActivityWindow activityWindow;
+
+    public record AccountId(Long value) {
+
+    }
+
+    public static Account withoutId(
         Money baselineBalance,
         ActivityWindow activityWindow) {
 
         return new Account(null, baselineBalance, activityWindow);
     }
 
-    static Account withId(
+    public static Account withId(
         AccountId accountId,
         Money baselineBalance,
         ActivityWindow activityWindow) {
 
         return new Account(accountId, baselineBalance, activityWindow);
     }
-
-    /* record getter랑 충돌 일으켜서 못씀 */
-/*    public Optional<AccountId> accountId() {
-        return Optional.ofNullable(accountId);
-    }*/
 
     boolean hasAccountId() {
         return Optional.ofNullable(accountId).isPresent();
@@ -81,9 +88,5 @@ public record Account(AccountId accountId,
     /* 예금 조건 : 아직은 항상 true */
     boolean mayDeposit(@NotNull final Money money) {
         return true;
-    }
-
-    public record AccountId(Long value) {
-
     }
 }

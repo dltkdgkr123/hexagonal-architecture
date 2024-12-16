@@ -7,6 +7,4 @@ import com.sh.hexagonal.application.domain.model.Money;
 public interface GetAccountBalanceQuery {
 
     Money getAccountBalnce(AccountId accountId);
-
-
 }

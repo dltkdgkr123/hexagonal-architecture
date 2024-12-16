@@ -58,7 +58,6 @@ class AccountTest {
                         .withTargetAccountId(new AccountId(targetAccountId2))
                         .withMoney(Money.of(100L))
                         .build()
-
                 )
             ).build();
 

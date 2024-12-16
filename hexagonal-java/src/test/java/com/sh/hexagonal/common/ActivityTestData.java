@@ -3,6 +3,7 @@ package com.sh.hexagonal.common;
 import com.sh.hexagonal.application.domain.model.Account;
 import com.sh.hexagonal.application.domain.model.Account.AccountId;
 import com.sh.hexagonal.application.domain.model.Activity;
+import com.sh.hexagonal.application.domain.model.Activity.ActivityId;
 import com.sh.hexagonal.application.domain.model.Money;
 import java.time.LocalDateTime;
 
@@ -19,6 +20,7 @@ public class ActivityTestData {
 
     public static class ActivityBuilder {
 
+        ActivityId activityId;
         Account.AccountId ownerAccountId;
         Account.AccountId sourceAccountId;
         Account.AccountId targetAccountId;
