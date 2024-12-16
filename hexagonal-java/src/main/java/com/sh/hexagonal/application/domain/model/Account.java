@@ -9,8 +9,8 @@ import java.util.Optional;
         "checkstyle:Indentation",
         "checkstyle:MissingJavadocType"})
 public record Account(AccountId accountId,
-               @NotNull Money baselineBalance,
-               @NotNull ActivityWindow activityWindow) {
+                      @NotNull Money baselineBalance,
+                      @NotNull ActivityWindow activityWindow) {
 
     /* 아직 영속화 되지 않은 새로운 엔터티를 사용할 때 사용 */
     static Account withoutId(
@@ -41,7 +41,7 @@ public record Account(AccountId accountId,
         return Money.sum(baselineBalance, activityWindow.calculateBalance(accountId));
     }
 
-    boolean withdraw(@NotNull final Money money, @NotNull final AccountId targetAccountId) {
+    public boolean withdraw(@NotNull final Money money, @NotNull final AccountId targetAccountId) {
         if (!mayWithdraw(money)) {
             return false;
         }
@@ -78,8 +78,8 @@ public record Account(AccountId accountId,
         return true;
     }
 
-    /* 입금 조건 : 아직은 항상 true */
-    public boolean mayDeposit(@NotNull final Money money) {
+    /* 예금 조건 : 아직은 항상 true */
+    boolean mayDeposit(@NotNull final Money money) {
         return true;
     }
 

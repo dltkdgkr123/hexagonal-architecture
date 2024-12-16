@@ -12,7 +12,7 @@ public record Money(@NotNull BigInteger amount) {
     public static Money ZERO = Money.of(0L);
 
     /* amount 자체가 long 범위보다 크면? */
-    static Money of(final long amount) {
+    public static Money of(final long amount) {
         return new Money(BigInteger.valueOf(amount));
     }
 

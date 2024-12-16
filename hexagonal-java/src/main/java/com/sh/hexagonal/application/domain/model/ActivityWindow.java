@@ -2,6 +2,8 @@ package com.sh.hexagonal.application.domain.model;
 
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -43,7 +45,15 @@ public record ActivityWindow(@NotNull List<Activity> activities) {
 
     /* Non-canonical record constructor must delegate to another constructor */
     public ActivityWindow(@NotNull final Activity... activities) {
-        this(List.of(activities));
+
+        // modifiableList 생성
+        this(new ArrayList<>(Arrays.asList(activities)));
+
+        // modifiableList 생성 2
+//        this(new ArrayList<>(List.of(activities)));
+
+        // unmodifiableList 생성
+//        this(List.of(activities));
     }
 
     /*
