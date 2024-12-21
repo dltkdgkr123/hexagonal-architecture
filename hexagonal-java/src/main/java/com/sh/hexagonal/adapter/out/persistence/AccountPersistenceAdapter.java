@@ -15,9 +15,9 @@ import lombok.RequiredArgsConstructor;
 @PersistenceAdapter
 class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
 
-    AccountMapper accountMapper;
-    ActivityRepository activityRepository;
-    SpringDataAccountRepository accountRepository;
+    private final AccountMapper accountMapper;
+    private final ActivityRepository activityRepository;
+    private final SpringDataAccountRepository accountRepository;
 
     @Override
     public Account loadAccount(AccountId accountId, LocalDateTime baselineDate) {
@@ -51,5 +51,12 @@ class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePo
     @Override
     public void updateActivities(Account account) {
 
+        account.getActivityWindow()
+            .getActivities()
+            .stream()
+            .filter(a -> a.getActivityId() != null)
+            .forEach(a -> activityRepository.save(
+                accountMapper.mapToJpaEntity(a)
+            ));
     }
 }

@@ -3,14 +3,13 @@ package com.sh.hexagonal.application.domain.model;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Optional;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public class Account {
 
-    @Getter
     private final AccountId accountId;
 
     @Getter

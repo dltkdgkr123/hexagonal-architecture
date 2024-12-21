@@ -4,10 +4,6 @@ import java.util.Iterator;
 import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
-@SuppressWarnings
-    ({"checkstyle:MethodJavadoc",
-        "checkstyle:Indentation",
-        "checkstyle:MissingJavadocType"})
 public class GenericUtils {
 
     public static <T, U> U foldl(BiFunction<U, T, U> f, U z, Stream<T> xs) {
