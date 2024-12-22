@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @PersistenceAdapter
-class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
+public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccountStatePort {
 
     private final AccountMapper accountMapper;
     private final ActivityRepository activityRepository;

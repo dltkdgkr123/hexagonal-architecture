@@ -10,7 +10,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-class AccountMapper {
+public class AccountMapper {
 
     /**
      * AccountJpaEntity -> Account 변환
