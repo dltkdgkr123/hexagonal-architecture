@@ -13,7 +13,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 class AccountTest {
 
-    /*
+    /**
      * 액티비티 윈도우에 관한 동작 검증
      * - 올바른 연산 결과 반환에만 책임이 있음
      * - 유효성 판단 책임은 Account record에 위임

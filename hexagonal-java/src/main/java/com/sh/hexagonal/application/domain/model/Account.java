@@ -84,7 +84,7 @@ public class Account {
         return true;
     }
 
-    /* 예금 조건 : 아직은 항상 true */
+    /** 예금 조건 : 아직은 항상 true */
     boolean mayDeposit(@NotNull final Money money) {
         return true;
     }

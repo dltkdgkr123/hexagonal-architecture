@@ -12,7 +12,7 @@ public class Money {
 
     public static Money ZERO = Money.of(0L);
 
-    /* amount 자체가 long 범위보다 크면? */
+    /** amount 자체가 long 범위보다 크면? */
     public static Money of(final long amount) {
         return new Money(BigInteger.valueOf(amount));
     }

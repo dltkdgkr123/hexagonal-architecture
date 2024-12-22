@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 class AccountMapper {
 
-    /*
+    /**
      * AccountJpaEntity -> Account 변환
      */
     Account mapToDomainEntity(
@@ -31,7 +31,7 @@ class AccountMapper {
             mapToActivityWindow(activities));
     }
 
-    /*
+    /**
      * 동작 순서
      * 1. ActivityJpaEntity -> Activity 맵핑
      * 2. List<Activity>에 Activity 들을 추가

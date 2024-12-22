@@ -20,7 +20,7 @@ public class ActivityTestData {
 
     public static class ActivityBuilder {
 
-        ActivityId activityId;
+//        ActivityId activityId;
         Account.AccountId ownerAccountId;
         Account.AccountId sourceAccountId;
         Account.AccountId targetAccountId;

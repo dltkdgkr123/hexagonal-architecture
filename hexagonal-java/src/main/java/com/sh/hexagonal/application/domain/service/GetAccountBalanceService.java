@@ -8,7 +8,6 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 
-
 @RequiredArgsConstructor
 public class GetAccountBalanceService implements GetAccountBalanceQuery {
 
