@@ -46,5 +46,5 @@ class AccountPersistenceAdapterTest {
 
         Assertions.assertEquals(account.getActivityWindow().getActivities().size(), 2);
         Assertions.assertEquals(account.calculateBalance(), Money.of(500L));
-    }d
+    }
 }
