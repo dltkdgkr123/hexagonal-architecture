@@ -17,23 +17,23 @@ public class Money {
         return new Money(BigInteger.valueOf(amount));
     }
 
-    boolean isPositive() {
+    public boolean isPositive() {
         return amount.compareTo(BigInteger.ZERO) > 0;
     }
 
-    boolean isPositiveOrZero() {
+    public boolean isPositiveOrZero() {
         return amount.compareTo(BigInteger.ZERO) >= 0;
     }
 
-    boolean isNegative() {
+    public boolean isNegative() {
         return amount.compareTo(BigInteger.ZERO) < 0;
     }
 
-    boolean isGreaterThan(final Money money) {
+    public boolean isGreaterThan(final Money money) {
         return amount.compareTo(money.amount) > 0;
     }
 
-    boolean isGreaterThanOrEqualTo(final Money money) {
+    public boolean isGreaterThanOrEqualTo(final Money money) {
         return amount.compareTo(money.amount) >= 0;
     }
 
