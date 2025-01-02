@@ -39,8 +39,8 @@ public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccount
         return accountMapper.mapToDomainEntity(
             account,
             activities,
-            withdrawalBalance,
-            depositBalance
+            depositBalance,
+            withdrawalBalance
         );
     }
 
@@ -56,7 +56,6 @@ public class AccountPersistenceAdapter implements LoadAccountPort, UpdateAccount
             .stream()
             .filter(a -> a.getActivityId() != null)
             .forEach(a -> activityRepository.save(
-                accountMapper.mapToJpaEntity(a)
-            ));
+                accountMapper.mapToJpaEntity(a)));
     }
 }

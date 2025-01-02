@@ -18,12 +18,12 @@ public class AccountMapper {
     Account mapToDomainEntity(
         AccountJpaEntity account,
         List<ActivityJpaEntity> activities,
-        Long withdrawalBalance,
-        Long depositBalance) {
+        Long depositBalance,
+        Long withdrawalBalance) {
 
         Money baselineBalance = Money.differnce(
-            Money.of(withdrawalBalance),
-            Money.of(depositBalance));
+            Money.of(depositBalance),
+            Money.of(withdrawalBalance));
 
         return Account.withId(
             new Account.AccountId(account.getId()),
@@ -32,10 +32,8 @@ public class AccountMapper {
     }
 
     /**
-     * 동작 순서
-     * 1. ActivityJpaEntity -> Activity 맵핑
-     * 2. List<Activity>에 Activity 들을 추가
-     * 3. List<Activity> -> ActivityWindow 변환
+     * 동작 순서 1. ActivityJpaEntity -> Activity 맵핑 2. List<Activity>에 Activity 들을 추가 3. List<Activity>
+     * -> ActivityWindow 변환
      */
     ActivityWindow mapToActivityWindow(List<ActivityJpaEntity> activities) {
 

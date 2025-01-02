@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 
 public interface ActivityRepository extends JpaRepository<ActivityJpaEntity, Long> {
 
@@ -16,7 +15,7 @@ public interface ActivityRepository extends JpaRepository<ActivityJpaEntity, Lon
         @Param("ownerAccountId") Long ownerAccountId,
         @Param("since") LocalDateTime since);
 
-    @Query("select a from ActivityJpaEntity a "
+    @Query("select sum(a.amount) from ActivityJpaEntity a "
         + "where a.targetAccountId = :accountId "
         + "and  a.ownerAccountId = :accountId "
         + "and a.timestamp < :until")
@@ -24,7 +23,7 @@ public interface ActivityRepository extends JpaRepository<ActivityJpaEntity, Lon
         @Param("accountId") Long accountId,
         @Param("until") LocalDateTime until);
 
-    @Query("select a from ActivityJpaEntity a "
+    @Query("select sum(a.amount) from ActivityJpaEntity a "
         + "where a.sourceAccountId = :accountId "
         + "and  a.ownerAccountId = :accountId "
         + "and a.timestamp < :until")
