@@ -1,7 +1,7 @@
 package com.sh.hexagonal.adapter.out.persistence;
 
-import com.sh.hexagonal.application.domain.model.Account;
-import com.sh.hexagonal.application.domain.model.Account.AccountId;
+import com.sh.hexagonal.domain.model.Account;
+import com.sh.hexagonal.domain.model.Account.AccountId;
 import com.sh.hexagonal.application.port.out.LoadAccountPort;
 import com.sh.hexagonal.application.port.out.UpdateAccountStatePort;
 import com.sh.hexagonal.common.annotation.PersistenceAdapter;

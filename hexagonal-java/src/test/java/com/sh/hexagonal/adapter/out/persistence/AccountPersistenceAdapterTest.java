@@ -1,12 +1,8 @@
 package com.sh.hexagonal.adapter.out.persistence;
 
-import com.sh.hexagonal.application.domain.model.Account;
-import com.sh.hexagonal.application.domain.model.Account.AccountId;
-import com.sh.hexagonal.application.domain.model.Activity.ActivityId;
-import com.sh.hexagonal.application.domain.model.ActivityWindow;
-import com.sh.hexagonal.application.domain.model.Money;
-import com.sh.hexagonal.common.AccountTestData;
-import com.sh.hexagonal.common.ActivityTestData;
+import com.sh.hexagonal.domain.model.Account;
+import com.sh.hexagonal.domain.model.Account.AccountId;
+import com.sh.hexagonal.domain.model.Money;
 import java.time.LocalDateTime;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,9 +1,9 @@
 package com.sh.hexagonal.common;
 
-import com.sh.hexagonal.application.domain.model.Account;
-import com.sh.hexagonal.application.domain.model.Account.AccountId;
-import com.sh.hexagonal.application.domain.model.ActivityWindow;
-import com.sh.hexagonal.application.domain.model.Money;
+import com.sh.hexagonal.domain.model.Account;
+import com.sh.hexagonal.domain.model.Account.AccountId;
+import com.sh.hexagonal.domain.model.ActivityWindow;
+import com.sh.hexagonal.domain.model.Money;
 
 public class AccountTestData {
 

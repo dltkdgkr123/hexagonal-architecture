@@ -1,13 +1,15 @@
-package com.sh.hexagonal.application.domain.service;
+package com.sh.hexagonal.application.service;
 
-import com.sh.hexagonal.application.domain.model.Account.AccountId;
-import com.sh.hexagonal.application.domain.model.Money;
+import com.sh.hexagonal.domain.model.Account.AccountId;
+import com.sh.hexagonal.domain.model.Money;
 import com.sh.hexagonal.application.port.in.GetAccountBalanceQuery;
 import com.sh.hexagonal.application.port.out.LoadAccountPort;
+import com.sh.hexagonal.common.annotation.UseCase;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
 
+@UseCase
 @RequiredArgsConstructor
 public class GetAccountBalanceService implements GetAccountBalanceQuery {
 

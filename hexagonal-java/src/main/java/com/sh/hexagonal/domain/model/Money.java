@@ -1,4 +1,4 @@
-package com.sh.hexagonal.application.domain.model;
+package com.sh.hexagonal.domain.model;
 
 import jakarta.validation.constraints.NotNull;
 import java.math.BigInteger;

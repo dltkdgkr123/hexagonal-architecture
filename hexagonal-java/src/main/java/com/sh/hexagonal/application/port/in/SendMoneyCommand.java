@@ -1,7 +1,7 @@
 package com.sh.hexagonal.application.port.in;
 
-import com.sh.hexagonal.application.domain.model.Account.AccountId;
-import com.sh.hexagonal.application.domain.model.Money;
+import com.sh.hexagonal.domain.model.Account.AccountId;
+import com.sh.hexagonal.domain.model.Money;
 import com.sh.hexagonal.common.validation.SelfValidating;
 import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;

@@ -1,10 +1,10 @@
 package com.sh.hexagonal.adapter.out.persistence;
 
-import com.sh.hexagonal.application.domain.model.Account;
-import com.sh.hexagonal.application.domain.model.Activity;
-import com.sh.hexagonal.application.domain.model.Activity.ActivityId;
-import com.sh.hexagonal.application.domain.model.ActivityWindow;
-import com.sh.hexagonal.application.domain.model.Money;
+import com.sh.hexagonal.domain.model.Account;
+import com.sh.hexagonal.domain.model.Activity;
+import com.sh.hexagonal.domain.model.Activity.ActivityId;
+import com.sh.hexagonal.domain.model.ActivityWindow;
+import com.sh.hexagonal.domain.model.Money;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Component;
