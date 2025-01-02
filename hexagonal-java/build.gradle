@@ -27,12 +27,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
+    testImplementation 'org.mockito:mockito-junit-jupiter:2.23.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'junit' // junit4 자동 포함됨, junit5 사용 중이므로 제외
     }
-
 
     testImplementation 'com.h2database:h2'
     runtimeOnly 'com.h2database:h2'
